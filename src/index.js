@@ -6,14 +6,14 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import {addPost, updateNewPostText} from "./redux/state";
+
 
 
 let rerenderEntireTree = (state) => {
+    debugger
     ReactDOM.render(<App
-        state={store.getState()}
-        updateNewPostText={store.updateNewPostText.bind(store)}
-        addPost={store.addPost.bind(store)}/>, document.getElementById('root'));
+        state={state}
+        dispatch={store.dispatch.bind(store)}/>, document.getElementById('root'));
 
 
 };
