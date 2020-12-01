@@ -10,10 +10,12 @@ import * as serviceWorker from './serviceWorker';
 
 
 let rerenderEntireTree = (state) => {
-    debugger
+
     ReactDOM.render(<App
         state={state}
-        dispatch={store.dispatch.bind(store)}/>, document.getElementById('root'));
+        dispatch={store.dispatch.bind(store)}
+        store={store}
+    />, document.getElementById('root'));
 
 
 };
