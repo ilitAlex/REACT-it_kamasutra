@@ -10,7 +10,7 @@ let reducers = combineReducers({
 });
 
 
-let store = createStore(reducers);
+const store = createStore(reducers);
 
 
 export default store;
