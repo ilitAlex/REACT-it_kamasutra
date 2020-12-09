@@ -6,6 +6,7 @@ import Profile from './components/Profile/Profile';
 import {Route} from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
+import Button from "../src/components/Button";
 
 
 
@@ -29,6 +30,11 @@ const App = () => {
                     <Route
                         path='/users'
                         render={ () => <UsersContainer/>
+                        }
+                    />
+                    <Route
+                        path='/button'
+                        render={ () => <Button/>
                         }
                     />
                 </div>

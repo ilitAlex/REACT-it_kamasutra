@@ -12,7 +12,6 @@ import {
 import * as axios from 'axios';
 import Preloader from "../common/Preloader/Preloader";
 
-
 class UsersContainer extends React.Component {
 
     componentDidMount() {
@@ -24,6 +23,7 @@ class UsersContainer extends React.Component {
                 this.props.toggleIsFetching(false);
                 this.props.setUsers(response.data.items);
                 this.props.setTotalUsersCount(response.data.totalCount);
+                console.log(this.props)
             })
 
     }
@@ -37,6 +37,8 @@ class UsersContainer extends React.Component {
             .then(response => {
                 this.props.toggleIsFetching(false);
                 this.props.setUsers(response.data.items)
+                console.log(this.props)
+
             })
     }
     render() {
@@ -55,9 +57,8 @@ class UsersContainer extends React.Component {
 }
 
 
-
-
 let mapStateToProps = (state) => {
+
     return {
         users: state.usersPage.users,
         pageSize: state.usersPage.pageSize,
@@ -66,30 +67,6 @@ let mapStateToProps = (state) => {
         isFetching: state.usersPage.isFetching,
     }
 };
-
-//
-// let mapDispatchToProps = (dispatch) => {
-//   return {
-//       follow: (userId) => {
-//           dispatch(followAC(userId))
-//       },
-//       unfollow: (userId) => {
-//           dispatch(unfollowAC(userId))
-//       },
-//       setUsers: (users) => {
-//           dispatch(setUsersAC(users))
-//       },
-//       setCurrentPage: (pageNumber) => {
-//           dispatch(setCurrentPageAC(pageNumber))
-//       },
-//       setTotalUsersCount: (totalCount) => {
-//             dispatch(setUsersTotalCountAC(totalCount))
-//       },
-//       toggleIsFetching: (isFetching) => {
-//           dispatch(toggleIsFetchingAC(isFetching))
-//       }
-//   }
-// };
 
     export default connect(mapStateToProps, {
             follow, unfollow, setUsers,

@@ -12,8 +12,8 @@ let Users = (props) => {
         if (i < 30) { pages.push(i)}
     }
 
-
     return <div>
+
         <div>
             {pages.map(p => {
                 return <span className={props.currentPage === p && styles.selectedPage}
@@ -40,7 +40,7 @@ let Users = (props) => {
                 </span>
                 <span>
                     <span>
-                        <div>{u.fullName}</div>
+                        <div>{u.name}</div>
                         <div>{u.status}</div>
                     </span>
                     <span>
