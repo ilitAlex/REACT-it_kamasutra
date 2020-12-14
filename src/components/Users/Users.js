@@ -3,6 +3,7 @@ import styles from './users.module.css';
 import userPhoto from '../../assets/img/user.jpg'
 import NavLink from "react-router-dom/NavLink";
 import {instance} from "../../api/api";
+import {toggleFollowingProgress} from "../../redux/users-reducer";
 
 
 let Users = (props) => {
@@ -36,7 +37,8 @@ let Users = (props) => {
                     </div>
                     <div>
                         {u.followed
-                            ? <button onClick={() => {
+                            ? <button disabled={props.followingInProgress.some(id => id === u.id)}  onClick={() => {
+                                props.toggleFollowingProgress(true, u.id);
                                 instance.delete(`follow/${u.id}`)
                                     .then(response => {
                                         if (response.data.resultCode === 0) {
@@ -47,7 +49,8 @@ let Users = (props) => {
 
 
                             }}>Unfollow</button>
-                            : <button onClick={() => {
+                            : <button disabled={props.followingInProgress.some(id => id === u.id)}  onClick={() => {
+                                props.toggleFollowingProgress(true, u.id);
                                 instance.post(`https://social-network.samuraijs.com/api/1.0//follow/${u.id}`)
                                     .then(response => {
                                         if (response.data.resultCode === 0) {

@@ -12,12 +12,13 @@ export const instance = axios.create({
 
 export const usersAPI = {
     getUsers(currentPage = 1, pageSize= 10) {
-        instance.get(`users?
-        page=${currentPage}
-        &count=${pageSize}`)
+        instance.get(`users?page=${currentPage}&count=${pageSize}`)
             .then(response => {
                 return response.data
             })
     }
 };
+
+// https://social-network.samuraijs.com/api/1.0/users?page=1&count=10
+
 
